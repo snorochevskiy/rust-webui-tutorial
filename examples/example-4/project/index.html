@@ -1,0 +1,14 @@
+<html>
+</html>
+<script>
+let importObj = {
+  console: console
+};
+
+async function run() {
+  let response = await fetch("target/wasm32-unknown-unknown/debug/print_num.wasm");
+  let wasm_lib = await WebAssembly.instantiateStreaming(response, importObj);
+  wasm_lib.instance.exports.entry_point();
+}
+run();
+</script>

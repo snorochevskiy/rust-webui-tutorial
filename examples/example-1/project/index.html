@@ -1,0 +1,8 @@
+<html>
+</html>
+<script>
+WebAssembly.instantiateStreaming(fetch("sum2.wasm")).then(
+  (wasm_lib) => {
+    console.log(wasm_lib.instance.exports.sum2(1, 2));
+  });
+</script>
