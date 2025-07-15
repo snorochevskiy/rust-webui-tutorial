@@ -1,0 +1,12 @@
+<html>
+</html>
+<script>
+let importObj = {
+  console: console
+};
+
+WebAssembly.instantiateStreaming(fetch("print_num.wasm"), importObj).then(
+  (wasm_lib) => {
+    wasm_lib.instance.exports.entry_point();
+  });
+</script>
